@@ -136,12 +136,7 @@ def game_over():
     
     canvas.delete(ALL)
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,
-    font=('consolas',20), text="GAME OVER\n appuyez sur 'R' pour rejouer", fill="#BFAEF3", tag="gameover")
-
-# Fonction pour recommencer le jeu
-def restart_game():
-
-    window.mainloop()
+    font=('consolas',20), text="Fin de la partie", fill="#BFAEF3", tag="gameover")
 
 # ================================================================
 
@@ -154,7 +149,7 @@ score = 0
 direction = 'right'
 
 # Création de l'étiquette pour afficher le score
-label = Label(window, text="Score:{}".format(score), font=('consolas', 40))
+label = Label(window, text="Points:{}".format(score), font=('consolas', 40))
 label.pack()
 
 # Création du canvas pour afficher le jeu
@@ -182,9 +177,6 @@ window.bind('<Left>', lambda event: change_direction('left'))
 window.bind('<Right>', lambda event: change_direction('right'))
 window.bind('<Up>', lambda event: change_direction('up'))
 window.bind('<Down>', lambda event: change_direction('down'))
-
-# Liaison de la touche 'R' pour redémarrer le jeu
-window.bind('<R>', lambda event: restart_game)
 
 # Création du serpent et de la nourriture
 snake = Snake()
